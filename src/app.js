@@ -6,14 +6,6 @@ import Main from './form/form'
 
 
 
-
-
-
-
-
-
-
-
 class App extends React.Component{
   render(){
     return (
