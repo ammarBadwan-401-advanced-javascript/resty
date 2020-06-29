@@ -1,8 +1,8 @@
 import React from 'react';
 import './app.scss'
-import Header from './header/header';
-import Footer from './footer/footer';
-import Main from './form/form'
+import Header from '../header/header';
+import Footer from '../footer/footer';
+import Main from '../form/form'
 
 
 
