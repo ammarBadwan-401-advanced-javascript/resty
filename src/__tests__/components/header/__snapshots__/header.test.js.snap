@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form test renders correctly 1`] = `
+<header>
+  <h1>
+    RESTY PROJECT
+  </h1>
+</header>
+`;
