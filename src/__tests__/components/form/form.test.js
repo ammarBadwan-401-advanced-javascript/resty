@@ -14,7 +14,25 @@ describe('Form test',()=>{
     let app = mount(<Main/>);
     let button = app.find('button').at(1);
     button.simulate('click');
-    console.log(button)
     expect(app.state('method')).toBe('GET');
   });
+
+  it('state url and method both can change',()=>{
+    let app = mount(<Main/>);
+    
+    let button = app.find('button').at(2);
+    button.simulate('click');
+    
+    let input = app.find('input');
+    input.simulate('change',{target:{value:'http://someapi.com/'}});
+    
+    expect(app.state('method')).toBe('POST');
+    expect(app.state('url')).toBe('http://someapi.com/');
+  });
+
+  it('renders correctly', ()=> {
+    const tree = renderer.create(<Main />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
 });

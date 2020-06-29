@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form test renders correctly 1`] = `
+<main>
+  <form>
+    <label>
+      URL
+    </label>
+    <input
+      onChange={[Function]}
+    />
+    <button
+      onClick={[Function]}
+    >
+      GO!
+    </button>
+    <div>
+      <button
+        onClick={[Function]}
+        value="GET"
+      >
+        GET
+      </button>
+      <button
+        onClick={[Function]}
+        value="POST"
+      >
+        POST
+      </button>
+      <button
+        onClick={[Function]}
+        value="PUT"
+      >
+        PUT
+      </button>
+      <button
+        onClick={[Function]}
+        value="DELETE"
+      >
+        DELETE
+      </button>
+    </div>
+  </form>
+  <section
+    id="results"
+  />
+</main>
+`;
