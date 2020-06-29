@@ -4,8 +4,8 @@ import renderer from 'react-test-renderer';
 
 import Main from '../components/form/form';
 
-describe('Form test',()=>{
-  it('',()=>{
-
-  })
-})
+// describe('Form test',()=>{
+//   it('',()=>{
+//     let app = 
+//   })
+// })
