@@ -3,7 +3,7 @@ import './app.scss'
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Form from '../form/form'
-
+import Results from '../results/results';
 
 
 class App extends React.Component{
@@ -23,11 +23,14 @@ class App extends React.Component{
 
 
 
+
+
   render(){
     return (
       <React.Fragment>
           <Header />
           <Form handler={this.formHandler} />
+          <Results count={this.state.count} result={this.state.results} />
           <Footer />
       </React.Fragment>
     )

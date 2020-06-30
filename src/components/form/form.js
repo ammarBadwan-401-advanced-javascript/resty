@@ -27,11 +27,11 @@ class Form extends React.Component {
     let raw = await fetch(this.state.url);
     let data = await raw.json();
     let count = data.length;
-    let header = raw.headers;
+    let header = raw.headers.get('content-type');
 
     let result = {
-      Headers: header,
-      Response: data,
+      headers: header,
+      response: data,
     }
     
     this.props.handler(count,result);
@@ -57,10 +57,6 @@ class Form extends React.Component {
           <button onClick={this.handleMethod} value="DELETE">DELETE</button>
           </div>
         </form>
-
-        <section id="results">
-
-        </section>
 
       </main>
     )
