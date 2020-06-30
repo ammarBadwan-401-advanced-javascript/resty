@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './form.scss';
 
-class Main extends React.Component {
+class Form extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -23,11 +22,20 @@ class Main extends React.Component {
     this.setState({method});
   }
 
-  handleResult = e =>{
+  handleResult = async e =>{
     e.preventDefault();
-    let target = document.getElementById('results');
-    let result = <div>{this.state.method} <span>{this.state.url}</span> </div>
-    ReactDOM.render(result,target);
+    let raw = await fetch(this.state.url);
+    let data = await raw.json();
+    let count = data.length;
+    let header = raw.headers;
+
+    let result = {
+      Headers: header,
+      Response: data,
+    }
+    
+    this.props.handler(count,result);
+
   }
 
 
@@ -37,10 +45,10 @@ class Main extends React.Component {
     return(
       <main>
 
-        <form>
+        <form onSubmit={this.handleResult}>
           <label>URL</label>
           <input onChange={this.handleURL} />
-          <button onClick={this.handleResult}>GO!</button>
+          <button type="submit">GO!</button>
 
           <div>
           <button onClick={this.handleMethod} value="GET" >GET</button>
@@ -59,4 +67,4 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+export default Form;
