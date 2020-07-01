@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 import Form from '../form/form'
 import Results from '../results/results';
 
-
+let queries = [];
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -22,10 +22,12 @@ class App extends React.Component{
   }
 
   toggleLoading = () => {
-    console.log("this.state.loading: ",this.state.loading)
-    this.setState({ loading: !this.state.loading })
+    this.setState({ loading: !this.state.loading });
   }
 
+  queryHandler = (object) =>{
+    queries.unshift(object)
+  }
 
 
 
@@ -36,10 +38,10 @@ class App extends React.Component{
       <React.Fragment>
           <Header />
           <Route path="/" exact>
-          <Form handler={this.formHandler} toggleLoading={this.toggleLoading} />
+          <Form handler={this.formHandler} toggleLoading={this.toggleLoading} queries={this.queryHandler}/>
           </Route>
           <Route path="/history" exact> <h3>HELLO!</h3></Route>
-          <Results loading={this.state.loading} count={this.state.count} result={this.state.results} />
+          <Results loading={this.state.loading} count={this.state.count} result={this.state.results} queries={queries} />
           <Footer />
       </React.Fragment>
     )

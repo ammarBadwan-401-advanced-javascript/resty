@@ -45,14 +45,33 @@ class Form extends React.Component {
           headers: info.headers,
           response: info.body,
         }
+        let object = {method:this.state.method , url: this.state.url, body:result};
+        this.props.queries(object);
         this.props.handler(count,result);
+        
         this.props.toggleLoading();
+
+        if (!localStorage.getItem('history')){
+          localStorage.setItem('history',JSON.stringify([]));
+        }
+        let theLocalStorage = JSON.parse(localStorage.getItem('history'));
+        theLocalStorage.push(object);
+        localStorage.setItem('history',JSON.stringify(theLocalStorage));
+        
       })
       .catch(err=>{
         let count = 'N/A'
-        let result = {
-          headers: err.response.headers,
-          response: err.response.body,
+        let result;
+        if(err.response){
+          result = {
+            headers: err.response.headers,
+            response: err.response.body,
+          }
+        } else {
+          result = {
+            headers: 'ERROR',
+            response: 'ERROR',
+          }
         }
         this.props.handler(count,result);
         this.props.toggleLoading();
@@ -62,6 +81,8 @@ class Form extends React.Component {
     this.props.toggleLoading();
 
   }
+
+
 
 
 
