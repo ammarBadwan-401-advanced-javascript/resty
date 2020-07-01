@@ -24,6 +24,7 @@ class Form extends React.Component {
 
   handleResult = async e =>{
     e.preventDefault();
+    this.props.toggleLoading();
     let raw = await fetch(this.state.url);
     let data = await raw.json();
     let count = data.length;
@@ -39,7 +40,7 @@ class Form extends React.Component {
     }
     
     this.props.handler(count,result);
-
+    this.props.toggleLoading();
   }
 
 
