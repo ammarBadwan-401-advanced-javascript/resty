@@ -27,7 +27,11 @@ class Form extends React.Component {
     let raw = await fetch(this.state.url);
     let data = await raw.json();
     let count = data.length;
-    let header = raw.headers.get('content-type');
+    let header = [];
+    raw.headers.forEach(value=>{
+      header.push(value);
+    });
+    console.log(header)
 
     let result = {
       headers: header,
