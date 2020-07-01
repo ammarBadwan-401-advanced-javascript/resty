@@ -5,6 +5,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import Form from '../form/form'
 import Results from '../results/results';
+import History from '../history/history'
 
 let queries = [];
 class App extends React.Component{
@@ -48,7 +49,7 @@ class App extends React.Component{
           <Results loading={this.state.loading} count={this.state.count} result={this.state.results} queries={queries} />
           </section>
           </Route>
-          <Route path="/history" exact> <h3>HELLO!</h3></Route>
+          <Route path="/history" exact><History/></Route>
 
           <Footer />
       </React.Fragment>
@@ -57,8 +58,8 @@ class App extends React.Component{
 }
 
 let theLocalStorage = JSON.parse(localStorage.getItem('history'));
-let map = theLocalStorage.map((value)=>{
-  return <li><span>{value.method}</span> {value.url}</li>
+let map = theLocalStorage.map((value,index)=>{
+  return <li key={index}><span>{value.method}</span> {value.url}</li>
 });
 
 export default App;
