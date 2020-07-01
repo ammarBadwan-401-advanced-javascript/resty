@@ -39,13 +39,26 @@ class App extends React.Component{
           <Header />
           <Route path="/" exact>
           <Form handler={this.formHandler} toggleLoading={this.toggleLoading} queries={this.queryHandler}/>
+          <section id="results" className={`loading-${this.state.loading}`}>
+          <aside>
+            <ul>
+              {map}
+            </ul>
+          </aside>  
+          <Results loading={this.state.loading} count={this.state.count} result={this.state.results} queries={queries} />
+          </section>
           </Route>
           <Route path="/history" exact> <h3>HELLO!</h3></Route>
-          <Results loading={this.state.loading} count={this.state.count} result={this.state.results} queries={queries} />
+
           <Footer />
       </React.Fragment>
     )
   }
 }
+
+let theLocalStorage = JSON.parse(localStorage.getItem('history'));
+let map = theLocalStorage.map((value)=>{
+  return <li><span>{value.method}</span> {value.url}</li>
+});
 
 export default App;
