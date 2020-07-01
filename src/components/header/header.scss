@@ -6,4 +6,26 @@ header {
     border-bottom: 1px solid grey;
     text-align: center;
     padding: 25px;
+    ul{
+        margin: 0;
+        padding: 0;
+        li{
+            display: inline-block;
+            margin-top: 10px;
+            
+            a{
+                text-decoration: none;
+                color:black;
+                padding: 5px;
+                margin: 5px 10px 0 10px;
+                background-color: beige;
+                border-radius: 5px;
+                border: 1px solid purple;
+            }
+            a:hover{
+                background-color: rgb(102, 102, 76);
+                border-radius: 5px;
+            }
+        }
+    }
 }
