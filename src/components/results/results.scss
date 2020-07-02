@@ -1,0 +1,19 @@
+
+.loading-true{
+    background-color: purple;
+    margin: 100px;
+}
+
+#results{
+    display: flex;
+    justify-content: left;
+    aside{
+        flex-basis: 35%;
+        border-right: 2px solid black;
+        margin: 5px 0 0 5px;
+    }
+    .resultsBar{
+        flex-basis: 65%;
+        margin: 5px 0 0 5px;
+    }
+}
