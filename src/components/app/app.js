@@ -57,9 +57,6 @@ class App extends React.Component{
   }
 }
 
-if (!localStorage.getItem('history')){
-  localStorage.setItem('history',JSON.stringify([]));
-}
 let theLocalStorage = JSON.parse(localStorage.getItem('history'));
 let map = theLocalStorage.map((value,index)=>{
   return <li key={index}><span>{value.method}</span> {value.url}</li>
